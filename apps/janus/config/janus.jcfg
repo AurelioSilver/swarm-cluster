@@ -1,0 +1,8 @@
+janus.plugin.videoroom = {
+  # General settings
+  rtcpsender = false;
+  audio = false;  # Disable audio
+  video = true;   # Enable video
+  rtmp = true;    # Enable RTMP output
+  rtsp = false;   # Enable RTSP output (set to true if needed)
+};

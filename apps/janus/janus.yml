@@ -1,0 +1,24 @@
+services:
+  janus:
+    image: canyan/janus-gateway:0.10
+    networks:
+      - janus-net
+    ports:
+      - "8088:8088"   # REST API
+      - "8188:8188"   # WebSocket
+      - "8000:8000"   # RTMP
+      - "8554:8554"   # RTSP
+      - "5000:5000"   # RTP
+    volumes:
+      - config:/usr/local/etc/janus
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+networks:
+  janus-net:
+    external: true
+
+volumes:
+  config:
